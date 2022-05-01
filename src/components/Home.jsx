@@ -60,9 +60,8 @@ function Home() {
         </RadioGroup>
       </FormControl>
       <TextField 
-      id="outlined-basic" 
-      label="Outlined" 
-      variant="outlined" 
+      id="filled-basic"  
+      variant="filled" 
       onChange={function(e){
           console.log('Current Entry: ', e.target.value)
           currEntry[0]=(e.target.value);

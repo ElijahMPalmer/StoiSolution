@@ -35,10 +35,9 @@ function Header() {
     border: "3px solid #2b4cb8",
     boxShadow: 3,
     p: 4,
-    [theme.breakpoints.down("mobile")]: {
-      width: 300,
-      height: 300,
-    },
+    [theme.breakpoints.down('mobile')]: {
+      width: 250,
+    }
   };
 
   return (
@@ -49,7 +48,7 @@ function Header() {
       <Menu></Menu>
 
       <RightMenu>
-        <Button onClick={handleClick}>What is this tool for?</Button>
+        <a onClick={handleClick}>What is this tool for?</a>
         <CustomMenu onClick={() => setBurgerStatus(true)} />
       </RightMenu>
       <BurgerNav show={burgerStatus}>
@@ -57,16 +56,16 @@ function Header() {
           <CustomClose onClick={() => setBurgerStatus(false)} />
         </CloseWrapper>
         <li>
-          <a href="#">GitHub</a>
+          <a target="_blank" href="https://github.com/ElijahMPalmer">My GitHub</a>
         </li>
         <li>
-          <a href="#">LinkedIn</a>
+          <a target ="_blank" href="https://www.linkedin.com/in/elijah-palmer/">My LinkedIn</a>
         </li>
         <li>
-          <a href="#">Check out Daily Stoic</a>
+          <a target="_blank" href="https://dailystoic.com/">Check out Daily Stoic</a>
         </li>
         <li>
-          <a href="#">Learn More About StoiSolution</a>
+          <a target="_blank" href="https://github.com/ElijahMPalmer/StoiSolution">Learn More About StoiSolution</a>
         </li>
           
       </BurgerNav>
@@ -77,7 +76,18 @@ function Header() {
         onClose={handleClose}
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography 
+          id="modal-modal-title" 
+          variant="h6" 
+          component="h2"
+          sx={{
+            [theme.breakpoints.down('mobile')]: {
+              p:{
+                fontSize: '12px'
+              }
+            }
+          }}
+          >
             <h3>Sometimes life is stressful!</h3>
             <p>
               A key principle of Stoicism is recognizing what is inside of your control and what is not. 
@@ -122,6 +132,15 @@ const Container = styled.div`
     text-decoration: none;
     color: black;
   }
+
+  @media (max-width: 768px) {
+    img {
+      width: 150px;
+    }
+    a {
+      font-size: 10px;
+    }
+  }
 `;
 
 const Menu = styled.div`
@@ -149,6 +168,7 @@ const RightMenu = styled.div`
     font-weight: 600;
     text-transform: uppercase;
     margin-right: 10px;
+    cursor: pointer;
   }
 `;
 
@@ -164,7 +184,7 @@ const BurgerNav = styled.div`
   right: 0;
   background: #cccccc;
   width: 300px;
-  z-index: 16;
+  z-index: 100;
   list-style: none;
   padding: 20px;
   display: flex;

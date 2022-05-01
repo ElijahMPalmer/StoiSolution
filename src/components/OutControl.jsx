@@ -3,14 +3,38 @@ import styled from "styled-components";
 import InControl from "./InControl";
 
 function OutControl({ outOfControl, inControl }) {
+
+
   function randomPos() {
+      let maxTop;
+      let maxLeft;
+      let leftGap;
+      let rightGap;
+      let topGap;
+      let bottomGap;
+
+      if(window.innerWidth < 780){
+          maxTop = 290;
+          maxLeft = 290;
+          leftGap = 65;
+          rightGap = 235;
+          topGap = 75;
+          bottomGap = 225;
+      } else {
+        maxTop = 635;
+        maxLeft = 635;
+        leftGap = 140;
+        rightGap = 475;
+        topGap = 155;
+        bottomGap = 475;
+      }
     const zone = Math.floor(Math.random() * 2 + 1);
     console.log("init zone: ", zone);
-    const top = Math.trunc(Math.random() * (635 - 0) + 0);
+    const top = Math.trunc(Math.random() * (maxTop - 0) + 0);
     let left;
     //In top or bottom strip
-    if (top < 155 || top > 475) {
-      left = Math.trunc(Math.random() * (635 - 0) + 0);
+    if (top < topGap || top > bottomGap) {
+      left = Math.trunc(Math.random() * (maxLeft - 0) + 0);
     } else {
       //In Middle Section
 
@@ -18,10 +42,10 @@ function OutControl({ outOfControl, inControl }) {
       //Left Strip
       if (zone === 1) {
         console.log("going left");
-        left = Math.trunc(Math.random() * (140 - 0) + 0);
+        left = Math.trunc(Math.random() * (leftGap - 0) + 0);
       } else {
         console.log("going right");
-        left = Math.trunc(Math.random() * (635 - 475) + 475);
+        left = Math.trunc(Math.random() * (maxLeft - rightGap) + rightGap);
       }
     }
     console.log(`${top}px auto auto ${left}px`);
@@ -65,9 +89,15 @@ const OutOfControl = styled.div`
   width: 650px;
   height: 650px;
   margin-top: 25px;
+  @media (max-width: 780px) {
+    width: 300px;
+    height: 300px;
+    font-size: 10px;
+  }
 `;
 
 const PartOfProblem = styled.div`
   position: absolute;
   inset: ${(props) => `${props.position}`};
+  color: red;
 `;
