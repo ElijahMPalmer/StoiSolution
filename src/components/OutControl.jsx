@@ -80,6 +80,9 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    h4{
+        max-width: 500px;
+    }
 `
 
 const OutOfControl = styled.div`
