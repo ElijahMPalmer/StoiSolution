@@ -4,25 +4,36 @@ import InControl from './InControl';
 
 function OutControl({ outOfControl, inControl }) {
     function randomPos() {
-
-        const zone = Math.trunc(Math.random() * (3 - 1) + 1);
-        let num;
-        if(zone === 1){
-            num = Math.trunc(Math.random() * (155 - 0) + 0);
-        } else {
-            num = Math.trunc(Math.random() * (650 - 475) + 475);
+        const zone = Math.floor(Math.random() * 2 + 1);
+        console.log('init zone: ', zone);
+        const top = Math.trunc(Math.random() * (635 - 0) + 0);
+        let left;
+        //In top or bottom strip
+        if(top < 155 || top > 475){
+            left = Math.trunc(Math.random() * (635 - 0) + 0);
+        } else { //In Middle Section
+            
+            console.log('Zone: ', zone)
+                //Left Strip
+                if(zone === 1){
+                    console.log('going left');
+                    left = Math.trunc(Math.random() * (140 - 0) + 0);
+                } else {
+                    console.log('going right');
+                    left = Math.trunc(Math.random() * (635 - 475) + 475);
+                }
         }
-        console.log(num)
-        return num;
+        console.log(`${top}px auto auto ${left}px`)
+        return `${top}px auto auto ${left}px`;
     }
+
   return (
     <Container>
         {outOfControl.map((item, index) => (
 
             <PartOfProblem 
             key={index}
-            top={randomPos()}
-            left={randomPos()}
+            position={randomPos()}
             >
                 {item}
             </PartOfProblem>
@@ -48,6 +59,5 @@ const Container = styled.div`
 
 const PartOfProblem = styled.div`
     position: absolute;
-    top: ${props => `${props.top}px`};
-    left: ${props => `${props.left}px`};
+    inset: ${props => `${props.position}`};
 `
