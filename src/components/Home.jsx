@@ -12,22 +12,22 @@ function Home() {
 
     const [ outOfControl, setOutOfControl ] = useState([]);
     const [ inControl, setInControl ] = useState([]);
-    const [ currEntry, setCurrEntry ] = useState('');
-    const [ radioButton, setRadioButton ] = useState('InControl');
+    const currEntry = useState('');
+    const radioButton = useState('InControl');
 
   return (
     <Container>
         <form
             onSubmit={(e) => {
                 e.preventDefault();
-                console.log(currEntry);
+                console.log(radioButton)
                 console.log('This is the current In Control Elements', inControl);
                 console.log('This is the current Out of Control Elements', outOfControl);
-                if(radioButton === 'InControl'){
+                if(radioButton[0] === 'InControl'){
                     console.log('InControlCondit')
                     setInControl([...inControl , currEntry])
                 }
-                if(radioButton === 'OutControl'){
+                if(radioButton[0] === 'OutControl'){
                     console.log('OutControlCondit')
                     setOutOfControl([...outOfControl , currEntry])
                 }
@@ -45,16 +45,16 @@ function Home() {
           value="In my control" 
           control={<Radio />} 
           label="In my control" 
-          onClick={() => {
-              setRadioButton('InControl')
+          onClick={function(){
+              radioButton[0]=('InControl')
           }}
           />
           <FormControlLabel 
           value="Out of my control" 
           control={<Radio />} 
           label="Out of my control" 
-          onClick={() => {
-            setRadioButton('OutControl')
+          onClick={function(){
+            radioButton[0]=('OutControl')
         }}
           />
         </RadioGroup>
@@ -64,7 +64,8 @@ function Home() {
       label="Outlined" 
       variant="outlined" 
       onChange={function(e){
-          setCurrEntry(e.target.value);
+          console.log('Current Entry: ', e.target.value)
+          currEntry[0]=(e.target.value);
       }}
       />
       </form>
