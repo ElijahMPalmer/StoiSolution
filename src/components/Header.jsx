@@ -1,11 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { Button, Modal, Box, Stack, TextField, Alert } from "@mui/material";
-import { useSelector } from "react-redux";
+import { Modal, Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
