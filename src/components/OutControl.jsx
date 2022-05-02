@@ -101,6 +101,7 @@ const OutOfControl = styled.div`
 
 const PartOfProblem = styled.div`
   position: absolute;
+  display: inline-block;
   inset: ${(props) => `${props.position}`};
   color: red;
 `;
