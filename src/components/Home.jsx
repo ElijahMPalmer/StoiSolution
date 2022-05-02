@@ -16,34 +16,15 @@ function Home() {
     const currEntry = useState('');
     const [ radioButton, setRadioButton ]= useState('InControl');
 
-    // useEffect(function(){
-    //   const inCont = document.getElementById('in-control-radio');
-    //   const inContVal = inCont.getElementsByTagName('input')[0].checked
-    //   const outCont = document.getElementById('out-control-radio');
-    //   const outContVal = outCont.getElementsByTagName('input')[0].checked
-    //   console.log('What radio is selected? ', inContVal);
-    //   console.log('What radio is selected? ', outContVal);
-    //   if(inContVal === true){
-    //     radioButton[0]='InControl';
-    //   } else if(outContVal){
-    //     radioButton[0]='OutControl';
-    //   }
-    // }, [])
-
   return (
     <Container>
         <form
             onSubmit={(e) => {
                 e.preventDefault();
-                console.log(radioButton)
-                console.log('This is the current In Control Elements', inControl);
-                console.log('This is the current Out of Control Elements', outOfControl);
                 if(radioButton === 'InControl'){
-                    console.log('InControlCondit')
                     setInControl([...inControl , currEntry])
                 }
                 if(radioButton === 'OutControl'){
-                    console.log('OutControlCondit')
                     setOutOfControl([...outOfControl , currEntry])
                 }
             }}
@@ -80,7 +61,6 @@ function Home() {
       id="filled-basic"  
       variant="filled" 
       onChange={function(e){
-          console.log('Current Entry: ', e.target.value)
           currEntry[0]=(e.target.value);
       }}
       />

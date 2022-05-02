@@ -44,6 +44,10 @@ const Container = styled.div`
   border-radius: 5px;
   width: 300px;
   height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   @media (max-width: 780px) {
     width: 150px;
     height: 150px;
@@ -52,7 +56,5 @@ const Container = styled.div`
 `;
 
 const PartOfProblem = styled.div`
-  position: absolute;
-  inset: ${(props) => `${props.position}`};
   color: green;
 `;
