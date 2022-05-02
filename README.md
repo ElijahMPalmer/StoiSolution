@@ -1,6 +1,6 @@
 ##
 <p align="center">
-<img src="./public/images/screenshot.gif" width="900" height="300">
+<img src="./public/images/screenshot.png" width="900" height="300">
 </p>
 
 ## Table of Contents
