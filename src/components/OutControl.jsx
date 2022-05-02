@@ -103,7 +103,6 @@ const OutOfControl = styled.div`
 `;
 
 const PartOfProblem = styled.div`
-  color: red;
 `;
 
 const TopSection = styled.div`

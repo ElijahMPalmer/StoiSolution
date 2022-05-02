@@ -56,5 +56,4 @@ const Container = styled.div`
 `;
 
 const PartOfProblem = styled.div`
-  color: green;
 `;
